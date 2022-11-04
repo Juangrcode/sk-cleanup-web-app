@@ -1,0 +1,11 @@
+.Carousel__container_child:hover .Carousel__quote_white {
+  display: none;
+}
+
+.Carousel__container_child:hover .Carousel__quote_blue {
+  display: flex;
+}
+
+.Carousel__quote_blue {
+  display: none;
+}

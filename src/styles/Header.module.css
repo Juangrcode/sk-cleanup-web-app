@@ -1,0 +1,43 @@
+.header_logged__menu:hover .header_menu__lines:nth-child(2) {
+  transition-delay: 0.4s;
+  margin-right: 4px;
+  width: 16px;
+}
+.header_logged__menu:hover .header_menu__lines:nth-child(3) {
+  transition-delay: 0.2s;
+  margin-right: 8px;
+  width: 12px;
+}
+
+.header_menu__lines {
+  margin: 2px 0;
+  width: 20px;
+  height: 4px;
+}
+
+.cancel__lines_back::after,
+.cancel__lines_back::before {
+  position: absolute;
+  top: calc(12px + 10.5px);
+  left: calc(0px + 12px);
+  content: '';
+  display: block;
+  width: 24px;
+  height: 3px;
+  transition: all 0.5s ease-in-out;
+}
+
+.cancel__lines_back::after {
+  transform: rotate(45deg);
+}
+
+.cancel__lines_back::before {
+  transform: rotate(-45deg);
+}
+
+.cancel__container__btn_back:hover .cancel__lines_back::after {
+  transform: rotate(25deg);
+}
+.cancel__container__btn_back:hover .cancel__lines_back::before {
+  transform: rotate(-25deg);
+}
