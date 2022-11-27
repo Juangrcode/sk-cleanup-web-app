@@ -1,9 +1,9 @@
 // React
-import Head from 'next/head';
+import Head from "next/head";
 
 // Components
-import Footer from './Footer';
-import Header from './Header';
+import Footer from "./Footer";
+import Header from "./Header";
 
 type LayoutProps = {
   title: string;

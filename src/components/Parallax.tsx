@@ -1,5 +1,5 @@
-import styles from '../styles/Home.module.css';
-import { StaticImageData } from 'next/image';
+import styles from "../styles/Home.module.css";
+import { StaticImageData } from "next/image";
 
 type ParallaxProps = {
   image: StaticImageData;
@@ -8,7 +8,9 @@ type ParallaxProps = {
 
 const Parallax = ({ image, children }: ParallaxProps) => {
   return (
-    <div className={`${styles.parallax__container} relative w-full h-[600px] flex justify-center items-center`}>
+    <div
+      className={`${styles.parallax__container} relative w-full h-[600px] flex justify-center items-center`}
+    >
       <div
         className={`${styles.parallax__container__image_background} absolute w-full h-full inset-0`}
         style={{

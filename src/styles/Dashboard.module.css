@@ -1,0 +1,21 @@
+.Dashboard {
+  height: calc(100vh - 96px);
+}
+
+.print_area {
+}
+@media print {
+  /* body * {
+    display: none;
+  } */
+
+  body .print_area,
+  .print_area {
+    display: block !important;
+  }
+
+  body #print_area,
+  #print_area * {
+    display: block !important;
+  }
+}

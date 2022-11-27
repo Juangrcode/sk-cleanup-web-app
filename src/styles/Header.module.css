@@ -2,11 +2,13 @@
   transition-delay: 0.4s;
   margin-right: 4px;
   width: 16px;
+  scale: 1;
 }
 .header_logged__menu:hover .header_menu__lines:nth-child(3) {
   transition-delay: 0.2s;
   margin-right: 8px;
   width: 12px;
+  scale: 1;
 }
 
 .header_menu__lines {
@@ -18,9 +20,9 @@
 .cancel__lines_back::after,
 .cancel__lines_back::before {
   position: absolute;
-  top: calc(12px + 10.5px);
-  left: calc(0px + 12px);
-  content: '';
+  top: calc(9px + 10.5px);
+  left: calc(0px + 8px);
+  content: "";
   display: block;
   width: 24px;
   height: 3px;

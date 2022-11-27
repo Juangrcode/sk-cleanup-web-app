@@ -65,8 +65,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-    monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -132,29 +132,6 @@
   }
 }
 
-.Carousel {
-  position: relative;
-  display: block;
-}
-
-.Carousel_external {
-  clip-path: inset(1px 1px -200px 1px);
-  overflow-x: clip;
-  position: relative;
-}
-
-.Carousel_internal {
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-  transform: translateX(0px);
-  padding: 20px 0;
-}
-
-.Carousel_item {
-  /* width: 600px; */
-  flex-shrink: 0;
-}
-
 .Arrow_buttons {
   top: calc(50% - 20px);
 }
@@ -183,6 +160,6 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-image: url('../assets/images/sneakers-basket.jpg');
+  background-image: url("../assets/images/sneakers-basket.jpg");
   z-index: 1;
 }

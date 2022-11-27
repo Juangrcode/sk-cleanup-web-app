@@ -64,8 +64,8 @@ module.exports = {
         320: '32rem',
       },
       colors: {
-        primary: '#EF3C44',
-        secondary: '#222B60',
+        primary: '#E9282A',
+        secondary: '#111F3C',
         baseDark: '#06479B',
         baseNormal: '#2670d0',
         baseLess: '#5a96e2',

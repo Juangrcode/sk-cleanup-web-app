@@ -9,3 +9,30 @@
 .Carousel__quote_blue {
   display: none;
 }
+
+.Carousel {
+  position: relative;
+  display: block;
+}
+
+.Carousel_external {
+  clip-path: inset(1px 1px -200px 1px);
+  overflow-x: clip;
+  position: relative;
+}
+
+.Carousel_internal {
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(0px);
+  padding: 20px 0;
+}
+
+.Carousel_item {
+  /* width: 600px; */
+  flex-shrink: 0;
+}
+
+.Arrow_buttons {
+  top: calc(50% - 20px);
+}

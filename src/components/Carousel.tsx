@@ -1,19 +1,18 @@
 // React
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 // Styles
-import styles from '@styles/Home.module.css';
-import stylesC from '@styles/Carousel.module.css';
+import styles from "@styles/Carousel.module.css";
 
 // Components
-import SmallButton from '@components/Buttons/small.button';
+import SmallButton from "@components/Buttons/small.button";
 
 // Images
-import quote from '@icons/quote.svg';
-import arrowIcon from '@icons/arrow.svg';
-import quoteWhite from '@icons/quote-white.svg';
-import sneakersWater from '@images/sneakers-water.jpg';
+import quote from "@icons/quote.svg";
+import arrowIcon from "@icons/arrow.svg";
+import quoteWhite from "@icons/quote-white.svg";
+import sneakersWater from "@images/sneakers-water.jpg";
 
 type CarouselProps = {
   size: string[] | number[];
@@ -25,28 +24,26 @@ const Carousel = ({ size }: CarouselProps) => {
   const [stateCarousel, setStateCarousel] = useState(1);
 
   useEffect(() => {
-    handleSetCarouselWidth();
-    window.addEventListener('resize', handleSetCarouselWidth);
-  }, []);
+    const handleSetCarouselWidth = (): void => {
+      const d = document.getElementById("carousel-width");
+      setTranslateWidth(0);
 
-  const handleSetCarouselWidth = () => {
-    const d = document.getElementById('carousel-width');
-
-    setTranslateWidth(0);
-
-    if (d?.clientWidth) {
-      if (d?.clientWidth / 3 >= 350 && size.length >= 3) {
-        setStateCarousel(3);
-        setCarouselWidth(d?.clientWidth / 3 - 27);
-      } else if (d?.clientWidth / 2 >= 420 && size.length >= 2) {
-        setStateCarousel(2);
-        setCarouselWidth(d?.clientWidth / 2 - 20);
-      } else {
-        setStateCarousel(1);
-        setCarouselWidth(d?.clientWidth);
+      if (d?.clientWidth) {
+        if (d?.clientWidth / 3 >= 350 && size.length >= 3) {
+          setStateCarousel(3);
+          setCarouselWidth(d?.clientWidth / 3 - 27);
+        } else if (d?.clientWidth / 2 >= 420 && size.length >= 2) {
+          setStateCarousel(2);
+          setCarouselWidth(d?.clientWidth / 2 - 20);
+        } else {
+          setStateCarousel(1);
+          setCarouselWidth(d?.clientWidth);
+        }
       }
-    }
-  };
+    };
+    handleSetCarouselWidth();
+    window.addEventListener("resize", handleSetCarouselWidth);
+  }, [size.length]);
 
   const handleScrollRigh = () => {
     let sum = carouselWidth + 40;
@@ -86,12 +83,16 @@ const Carousel = ({ size }: CarouselProps) => {
     <div className={styles.Carousel}>
       {/* Arrow Buttons */}
 
-      <div className={`absolute rotate-90 z-20 -left-2 md:-left-7 ${styles.Arrow_buttons}`}>
+      <div
+        className={`absolute rotate-90 z-20 -left-2 md:-left-7 ${styles.Arrow_buttons}`}
+      >
         <SmallButton onClick={handleScrollLeft}>
           <Image src={arrowIcon} alt="Arrow icon" layout="fill" />
         </SmallButton>
       </div>
-      <div className={`absolute -rotate-90 z-20 -right-2 md:-right-7 ${styles.Arrow_buttons}`}>
+      <div
+        className={`absolute -rotate-90 z-20 -right-2 md:-right-7 ${styles.Arrow_buttons}`}
+      >
         <SmallButton onClick={handleScrollRigh}>
           <Image src={arrowIcon} alt="Arrow icon" layout="fill" />
         </SmallButton>
@@ -106,19 +107,24 @@ const Carousel = ({ size }: CarouselProps) => {
           {size.map((n) => (
             <div
               key={n}
-              className={`h-[460px]  py-16 px-10 relative flex items-center overflow-hidden bg-secondary hover:bg-white shadow-2xl flex-col rounded-xl hover:text-black cursor-pointer ${stylesC.Carousel__container_child} ${styles.Carousel_item}`}
+              className={`h-[460px]  py-16 px-10 relative flex items-center overflow-hidden bg-secondary hover:bg-white shadow-2xl flex-col rounded-xl hover:text-black cursor-pointer ${styles.Carousel__container_child} ${styles.Carousel_item} transition-all duration-500`}
               style={{ width: `${carouselWidth}px` }}
             >
               <div className="pb-12 border-b-1 border-gray-700">
-                <div className={`${stylesC.Carousel__quote_white} relative h-16 w-16 mb-8`}>
+                <div
+                  className={`${styles.Carousel__quote_white} relative h-16 w-16 mb-8`}
+                >
                   <Image src={quoteWhite} alt="Quote white" layout="fill" />
                 </div>
-                <div className={`${stylesC.Carousel__quote_blue} relative h-16 w-16 mb-8`}>
+                <div
+                  className={`${styles.Carousel__quote_blue} relative h-16 w-16 mb-8`}
+                >
                   <Image src={quote} alt="Quote blue" layout="fill" />
                 </div>
                 <p>
-                  Sneakers Cleanup la mejor solucion para el cuidado y limpieza de mis tenis. Usan productos
-                  especializados para cada material.
+                  Sneakers Cleanup la mejor solucion para el cuidado y limpieza
+                  de mis tenis. Usan productos especializados para cada
+                  material.
                 </p>
               </div>
               <div className="flex mt-12 w-full">

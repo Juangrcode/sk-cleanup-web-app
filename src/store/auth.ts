@@ -1,5 +1,6 @@
 const auth = {
-  modalForgivePassword: false,
+  user: {},
+  token: '',
 };
 
 export default auth;

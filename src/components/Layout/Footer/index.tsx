@@ -10,6 +10,8 @@ import facebookIcon from '@icons/facebook.svg';
 import instagramIcon from '@icons/instagram.svg';
 import linkedinIcon from '@icons/linkedin.svg';
 
+import styles from '@styles/Footer.module.css';
+
 const Footer = () => {
   const socialNetworks = [
     {
@@ -30,7 +32,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary w-full h-full min-h-[500px]">
+    <footer className={`bg-secondary w-full h-full min-h-[500px] ${styles.Footer}`}>
       <div className="container pt-[140px]">
         <div className="flex justify-between border-b-1 border-gray-500 pb-12 flex-col md:flex-row items-center md:items-stretch">
           <div className="max-w-[300px] w-full h-full flex flex-col cursor-pointer relative mb-14 text-center md:text-left items-center md:items-start">

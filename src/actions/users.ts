@@ -2,6 +2,7 @@ import axios from 'axios';
 import config from '../config';
 import { setItemInLocalStorage, setItemInSessionStorage, validToken } from '@utils/window';
 import { emailValidationAdmin } from '@utils/email';
+import Swal from 'sweetalert2';
 
 export const setDarkMode = (payload: any) => ({
   type: 'SET_DARK_MODE',

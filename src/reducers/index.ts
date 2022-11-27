@@ -1,4 +1,4 @@
-import authReducer from '@reducers/auth';
+import authReducer from "@reducers/auth";
 
 const reducer = (state: any, action: any) => {
   const auth = authReducer(state, action);

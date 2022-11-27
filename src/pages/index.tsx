@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 // Styles
 import styles from '@styles/Home.module.css';
@@ -48,11 +49,13 @@ const Home: NextPage = () => {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <>
       <Layout
-        title="Snekers Clenaup - Restauracion y Limpiesza de zapatilla en Colombia."
-        description="Encuentra el mejor personal especializado en la limpieza de zapatillas con productos especializados frabricados en colombia."
+        title="Sneakers Cleanup - Restauración y Limpieza de zapatillas en Colombia."
+        description="Encuentra el mejor personal especializado en la limpieza de zapatillas con productos especializados fabricados en Colombia."
       >
         {/* Hero Section */}
         <section className={`${styles.Home__hero} w-full bg-secondary relative`}>
@@ -61,13 +64,15 @@ const Home: NextPage = () => {
               <h2 className="max-w-[700px]font-text font-bold text-4xl md:text-5xl">
                 Ofrecemos soluciones para cuidar aquello que te mueve.
               </h2>
-              <p className="max-w-[700px] font-text mt-4 mb-4">
+              <p className="max-w-[700px] font-text my-8 ">
                 Somos una empresa especializada en la limpieza y restauracion de sneakers. Tambien contamos con una
                 linea de productos para el cuidado de tus tenis.
               </p>
-              <Link href="/services" passHref prefetch={false}>
-                <PrimaryButton text="SERVICIOS" />
-              </Link>
+              <div className="flex justify-center md:justify-start">
+                <Link href="/services" passHref prefetch={false}>
+                  <PrimaryButton text="SERVICIOS" onClick={() => router.push('/services')} />
+                </Link>
+              </div>
             </div>
             <div className="relative min-h-[200px] w-full h-full mt-8">
               <Image src={heroImage} alt="Image build hero" layout="fill" />
@@ -95,9 +100,11 @@ const Home: NextPage = () => {
               Encontraras productos especializados para la limpieza para tus tenis. Contamos con una gran variedad de
               productos para cada material o apliacion.{' '}
             </p>
-            <Link href="/products" passHref prefetch={false}>
-              <PrimaryButton text="Productos" />
-            </Link>
+            <div className="flex justify-center md:justify-start">
+              <Link href="/products" passHref prefetch={false}>
+                <PrimaryButton text="Productos" onClick={() => router.push('/products')} />
+              </Link>
+            </div>
           </div>
           <div className="relative w-full h-full min-h-[600px]">
             <Image src={sneakersNike} layout="fill" alt="Background Sneakers Nike" className="object-cover" />
@@ -119,9 +126,9 @@ const Home: NextPage = () => {
                 Images, videos, PDFs and audio files are supported. Create math expressions and diagrams directly from
                 the app. Take photos with the mobile app and save them to a note.
               </p>
-              <Link href="/services" passHref prefetch={false}>
-                <PrimaryButton text="SERVICIOS" />
-              </Link>
+              <div className="flex justify-center md:justify-start">
+                <PrimaryButton text="SERVICIOS" onClick={() => router.push('/services')} />
+              </div>
             </div>
           </div>
         </section>
@@ -146,7 +153,7 @@ const Home: NextPage = () => {
               <strong> 25% de descuento</strong>.
             </p>
             <div className="text-center mb-8">
-              <PrimaryButton text="WELCOMECLEANER" />
+              <PrimaryButton text="WELCOMECLEANER" onClick={() => {}} />
             </div>
             <p className="max-w-[300px] font-normal">Codigo de descuento valido hasta el 31 de diciembre </p>
           </div>

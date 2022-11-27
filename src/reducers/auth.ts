@@ -1,12 +1,12 @@
-import { scrollUp } from '@utils/window';
-
 const authReducer = (state: any, action: any) => {
   switch (action.type) {
-    case 'MODAL_FORGIVE_PASSWORD':
-      scrollUp();
+    case 'LOGIN_REQUEST':
+    case 'REGISTER_REQUEST':
+    case 'LOGOUT_REQUEST':
       return {
         ...state,
-        modalForgivePassword: action.payload,
+        user: action.payload?.user,
+        token: action.payload?.token,
       };
   }
 };

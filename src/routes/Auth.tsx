@@ -1,22 +1,24 @@
 // React
-import { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
 
-import { loginRequest } from '@actions/auth';
-import { setDataUser, setDataToken } from '@actions/users';
+import { loginRequest } from "@actions/auth";
+import { setDataUser, setDataToken } from "@actions/users";
 
-import { getItemInLocalStorage, getItemInSessionStorage } from '@utils/window';
+import { getItemInLocalStorage, getItemInSessionStorage } from "@utils/window";
 
 const Auth = ({ children }: any) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const loggedUser = getItemInLocalStorage('loggedEdySan') || getItemInSessionStorage('loggedEdySan');
+    const loggedUser =
+      getItemInLocalStorage("loggedEdySan") ||
+      getItemInSessionStorage("loggedEdySan");
 
     if (loggedUser) {
       dispatch(loginRequest(loggedUser.data));
     }
-  }, []);
+  }, [dispatch]);
 
   return children;
 };

@@ -1,8 +1,8 @@
 // React
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from "next/image";
 
 // Styles
-import styles from '@styles/Home.module.css';
+import styles from "@styles/Home.module.css";
 
 type CategoriesInformationType = {
   title: string;
@@ -10,7 +10,11 @@ type CategoriesInformationType = {
   imageUrl: StaticImageData;
 };
 
-const CategoriesInformation = ({ title, description, imageUrl }: CategoriesInformationType): JSX.Element => {
+const CategoriesInformation = ({
+  title,
+  description,
+  imageUrl,
+}: CategoriesInformationType): JSX.Element => {
   return (
     <div className="flex justify-center items-center flex-col p-10">
       <div className="relative rounded-t-full w-44 h-44">
