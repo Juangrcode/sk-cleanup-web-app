@@ -20,7 +20,7 @@ const Layout = ({ children, title, description }: LayoutProps): JSX.Element => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Head>
-      <Header />
+      <Header user={null} />
       {children}
       <Footer />
     </>

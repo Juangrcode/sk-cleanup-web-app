@@ -1,49 +1,56 @@
 // React
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 // Images
-import sneakerCleanupLogo from '@logos/sneaker-cleanup.svg';
-import colombiaIcon from '@icons/colombia-icon.svg';
-import arrowIcon from '@icons/arrow.svg';
-import facebookIcon from '@icons/facebook.svg';
-import instagramIcon from '@icons/instagram.svg';
-import linkedinIcon from '@icons/linkedin.svg';
+import sneakerCleanupLogo from "@logos/sneaker-cleanup.svg";
+import colombiaIcon from "@icons/colombia-icon.svg";
+import arrowIcon from "@icons/arrow.svg";
+import facebookIcon from "@icons/facebook.svg";
+import instagramIcon from "@icons/instagram.svg";
+import linkedinIcon from "@icons/linkedin.svg";
 
-import styles from '@styles/Footer.module.css';
+import styles from "@styles/Footer.module.css";
 
 const Footer = () => {
   const socialNetworks = [
     {
-      title: 'Facebook sneakers cleanup',
+      title: "Facebook sneakers cleanup",
       image: facebookIcon,
-      urlPath: 'https://www.instagram.com/sk_cleanup/',
+      urlPath: "https://www.instagram.com/sk_cleanup/",
     },
     {
-      title: 'Instagram sneakers cleanup',
+      title: "Instagram sneakers cleanup",
       image: instagramIcon,
-      urlPath: 'https://www.instagram.com/sk_cleanup/',
+      urlPath: "https://www.instagram.com/sk_cleanup/",
     },
     {
-      title: 'LinkeIn sneakers cleanup',
+      title: "LinkeIn sneakers cleanup",
       image: linkedinIcon,
-      urlPath: 'https://www.instagram.com/sk_cleanup/',
+      urlPath: "https://www.instagram.com/sk_cleanup/",
     },
   ];
 
   return (
-    <footer className={`bg-secondary w-full h-full min-h-[500px] ${styles.Footer}`}>
+    <footer
+      className={`bg-secondary w-full h-full min-h-[500px] ${styles.Footer}`}
+    >
       <div className="container pt-[140px]">
         <div className="flex justify-between border-b-1 border-gray-500 pb-12 flex-col md:flex-row items-center md:items-stretch">
           <div className="max-w-[300px] w-full h-full flex flex-col cursor-pointer relative mb-14 text-center md:text-left items-center md:items-start">
             <div className="relative w-[170px] h-[70px]  mb-2">
               <Link href="/" passHref prefetch={false}>
-                <Image src={sneakerCleanupLogo} alt="logo sneaker cleanup" layout="fill" />
+                <Image
+                  src={sneakerCleanupLogo}
+                  alt="logo sneaker cleanup"
+                  layout="fill"
+                />
               </Link>
             </div>
             <p>
-              Sneakers Cleanup es creado para brindar restauracion y limpieza a las zapatillas. Con productos
-              especializados para cada material con diferente implementacion.
+              Sneakers Cleanup es creado para brindar restauracion y limpieza a
+              las zapatillas. Con productos especializados para cada material
+              con diferente implementacion.
             </p>
           </div>
           <div className="flex flex-wrap justify-center">
@@ -77,7 +84,9 @@ const Footer = () => {
                 <a className="hover:border-b-1">Contacto</a>
               </Link>
               <Link href="/" passHref prefetch={false}>
-                <a className="hover:border-b-1">sneakers.cleanup.inc@gmail.com</a>
+                <a className="hover:border-b-1">
+                  sneakers.cleanup.inc@gmail.com
+                </a>
               </Link>
             </div>
             <div className="flex flex-col gap-3  items-center mb-12 mx-6">
@@ -118,7 +127,12 @@ const Footer = () => {
           </div>
           <div className="flex gap-4 justify-center my-8 md:m-0">
             {socialNetworks.map((network) => (
-              <a key={network.title} href={network.urlPath} target="black" className="w-8 h-8">
+              <a
+                key={network.title}
+                href={network.urlPath}
+                target="black"
+                className="w-8 h-8"
+              >
                 <Image src={network.image} alt={network.title} layout="fill" />
               </a>
             ))}

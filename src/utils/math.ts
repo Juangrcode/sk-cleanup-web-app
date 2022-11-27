@@ -1,4 +1,5 @@
-export const valueWithDiscount = (value: any, discount: any) => value - Math.floor(value * discount) / 100;
+export const valueWithDiscount = (value: any, discount: any) =>
+  value - Math.floor(value * discount) / 100;
 
 export const addReceiptNumber = (number: any) => {
   const numberLength = number.toString().length;
@@ -16,6 +17,6 @@ export const addReceiptNumber = (number: any) => {
 export const numberWithCommas = (x: any) => {
   x = x.toString();
   const pattern = /(-?\d+)(\d{3})/;
-  while (pattern.test(x)) x = x.replace(pattern, '$1.$2');
+  while (pattern.test(x)) x = x.replace(pattern, "$1.$2");
   return x;
 };

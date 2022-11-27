@@ -1,6 +1,6 @@
 const auth = {
   user: {},
-  token: '',
+  token: "",
 };
 
 export default auth;

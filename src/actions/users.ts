@@ -1,26 +1,30 @@
-import axios from 'axios';
-import config from '../config';
-import { setItemInLocalStorage, setItemInSessionStorage, validToken } from '@utils/window';
-import { emailValidationAdmin } from '@utils/email';
-import Swal from 'sweetalert2';
+import axios from "axios";
+import config from "../config";
+import {
+  setItemInLocalStorage,
+  setItemInSessionStorage,
+  validToken,
+} from "@utils/window";
+import { emailValidationAdmin } from "@utils/email";
+import Swal from "sweetalert2";
 
 export const setDarkMode = (payload: any) => ({
-  type: 'SET_DARK_MODE',
+  type: "SET_DARK_MODE",
   payload,
 });
 
 export const setDataUser = (payload: any) => ({
-  type: 'SET_DATA_USER',
+  type: "SET_DATA_USER",
   payload,
 });
 
 export const setDataToken = (payload: any) => ({
-  type: 'SET_DATA_TOKEN',
+  type: "SET_DATA_TOKEN",
   payload,
 });
 
 export const setUserLogged = (payload: any) => ({
-  type: 'SET_USER_LOGGED',
+  type: "SET_USER_LOGGED",
   payload,
 });
 
@@ -37,7 +41,7 @@ export const loginUser = (payload: any) => {
 
       const response = await axios({
         url: `${config.edysanApi}/api/auth/sign-in`,
-        method: 'POST',
+        method: "POST",
         auth: {
           username: email,
           password,
@@ -50,9 +54,9 @@ export const loginUser = (payload: any) => {
       const data = response.data;
 
       if (remember) {
-        setItemInLocalStorage('loggedEdySan', data);
+        setItemInLocalStorage("loggedEdySan", data);
       } else {
-        setItemInSessionStorage('loggedEdySan', data);
+        setItemInSessionStorage("loggedEdySan", data);
       }
       // dispatch(loginRequest(data.data))
       // dispatch(setModalLogin(false))
@@ -66,7 +70,10 @@ export const loginUser = (payload: any) => {
 export const registerUser = (payload: any) => {
   return async () => {
     try {
-      const response = await axios.post(`${config.edysanApi}/api/auth/sign-up`, payload);
+      const response = await axios.post(
+        `${config.edysanApi}/api/auth/sign-up`,
+        payload
+      );
 
       // dispatch(registerRequest(response.data))
       // dispatch(setModalRegister(false))
@@ -86,10 +93,10 @@ export const getProducts = () => {
   return async () => {
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: `${config.edysanApi}/api/products`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${validToken()}`,
         },
       });
@@ -101,8 +108,8 @@ export const getProducts = () => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -114,10 +121,10 @@ export const getProduct = (productId: any) => {
   return async () => {
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: `${config.edysanApi}/api/products/${productId}`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${validToken()}`,
         },
       });
@@ -127,8 +134,8 @@ export const getProduct = (productId: any) => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -142,17 +149,17 @@ export const createProduct = (payload: any) => {
   return async () => {
     try {
       const response = await axios({
-        method: 'POST',
+        method: "POST",
         url: `${config.edysanApi}/api/products`,
         data: payload,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${validToken()}`,
         },
       });
 
       Swal.fire({
-        icon: 'success',
+        icon: "success",
         title: `Your product is create success! ${response.data.message}`,
         showConfirmButton: false,
         timer: 5000,
@@ -162,8 +169,8 @@ export const createProduct = (payload: any) => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -182,17 +189,17 @@ export const updateProduct = (payload: any, productId: any) => {
   return async () => {
     try {
       const response = await axios({
-        method: 'PUT',
+        method: "PUT",
         url: `${config.edysanApi}/api/products/${productId}`,
         data: payload,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${validToken()}`,
         },
       });
 
       Swal.fire({
-        icon: 'success',
+        icon: "success",
         title: `Your product is update success! ${response.data.message}`,
         showConfirmButton: false,
         timer: 5000,
@@ -202,8 +209,8 @@ export const updateProduct = (payload: any, productId: any) => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -222,10 +229,10 @@ export const getBrands = () => {
   return async () => {
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: `${config.edysanApi}/api/brands`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${validToken()}`,
         },
       });
@@ -237,8 +244,8 @@ export const getBrands = () => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -252,10 +259,10 @@ export const getCategories = () => {
   return async () => {
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: `${config.edysanApi}/api/categories`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${validToken()}`,
         },
       });
@@ -267,8 +274,8 @@ export const getCategories = () => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to create new Product!, ${error.response.data}`,
         timer: 5000,
       });
@@ -283,10 +290,10 @@ export const deleteFile = (payload: any) => {
   return async () => {
     try {
       const response = await axios({
-        method: 'DELETE',
+        method: "DELETE",
         url: `${config.edysanApi}/api/upload-files`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${validToken()}`,
         },
         data: payload,
@@ -299,8 +306,8 @@ export const deleteFile = (payload: any) => {
       console.error({ error: error.response });
 
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `Error to delete file!, ${error.response.data}`,
         timer: 5000,
       });
@@ -312,28 +319,28 @@ export const deleteFile = (payload: any) => {
 // Shoes
 
 export const setFormShoemaker = (payload: any) => ({
-  type: 'SET_FORM_SHOES',
+  type: "SET_FORM_SHOES",
   payload,
 });
 
 export const setShoeRepairs = (payload: any) => ({
-  type: 'SET_SHOE_REPAIRS',
+  type: "SET_SHOE_REPAIRS",
   payload,
 });
 
 export const setShoeRepairsToday = (payload: any) => ({
-  type: 'SET_SHOE_REPAIRS_TODAY',
+  type: "SET_SHOE_REPAIRS_TODAY",
   payload,
 });
 
 export const setRepairTags = (payload: any) => ({
-  type: 'SET_REPAIR_TAGS',
+  type: "SET_REPAIR_TAGS",
   payload,
 });
 
 // Users
 
 export const setUsers = (payload: any) => ({
-  type: 'SET_USERS',
+  type: "SET_USERS",
   payload,
 });

@@ -1,22 +1,22 @@
 // Redux
-import { useDispatch } from 'react-redux';
-import { loginUser } from '@services/auth';
+import { useDispatch } from "react-redux";
+import { loginUser } from "@services/auth";
 
 // Hooks
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 
 // Utils
 // import { yupResolver } from '@hookform/resolvers/yup';
 // import useAuthSchema from '@utils/schemas/auth';
 
 // Utils
-import config from '@config/index';
-import Swal from 'sweetalert2';
-import { setItemInLocalStorage, setItemInSessionStorage } from '@utils/window';
-import useLocalStorage from './useLocalStorage';
+import config from "@config/index";
+import Swal from "sweetalert2";
+import { setItemInLocalStorage, setItemInSessionStorage } from "@utils/window";
+import useLocalStorage from "./useLocalStorage";
 
-import { loginRequest } from '@actions/auth';
-import { useRouter } from 'next/router';
+import { loginRequest } from "@actions/auth";
+import { useRouter } from "next/router";
 // import { loginRequest, setModalLogin, setDropdownSidebar, setModalForgivePassword } from '@actions/auth';
 
 const useLogin = () => {
@@ -28,11 +28,14 @@ const useLogin = () => {
     register,
     formState: { errors, isDirty, isValid },
     handleSubmit,
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: "onChange" });
   // } = useForm({ resolver: yupResolver(signInSchema), mode: 'onChange' });
   const dispatch = useDispatch();
 
-  const [skCleanupLogged, setSkCleanupLogged] = useLocalStorage('skCleanupLogged', '');
+  const [skCleanupLogged, setSkCleanupLogged] = useLocalStorage(
+    "skCleanupLogged",
+    ""
+  );
 
   // Login User
   const onSubmit = async (payload: any) => {
@@ -42,14 +45,14 @@ const useLogin = () => {
       console.log({ data });
       setSkCleanupLogged(data);
       dispatch(loginRequest(data));
-      router.push('/');
+      router.push("/");
       // dispatch(setModalLogin(false));
       // dispatch(setDropdownSidebar(false));
     } else {
       reset();
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `${message} !`,
         timer: 5000,
       });

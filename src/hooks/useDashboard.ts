@@ -1,14 +1,14 @@
 // Redux
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { registerUser } from '@services/auth';
+import { registerUser } from "@services/auth";
 
 // Hooks
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 
 // Utils
-import Swal from 'sweetalert2';
-import { useEffect } from 'react';
+import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const useDashboard = () => {
   const {
@@ -18,7 +18,7 @@ const useDashboard = () => {
     handleSubmit,
     formState: { errors, isDirty, isValid },
     getValues,
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: "onChange" });
   const dispatch = useDispatch();
 
   const onSubmit = async (payload: any) => {
@@ -32,7 +32,7 @@ const useDashboard = () => {
 
     if (success && data) {
       Swal.fire({
-        icon: 'success',
+        icon: "success",
         title: `${message} !`,
         showConfirmButton: false,
         timer: 5000,
@@ -40,8 +40,8 @@ const useDashboard = () => {
     } else {
       reset();
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
+        icon: "error",
+        title: "Oops...",
         text: `${message} !`,
         timer: 5000,
       });
