@@ -1,24 +1,28 @@
 // React
-import { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 
-import { loginRequest } from "@actions/auth";
-import { setDataUser, setDataToken } from "@actions/users";
+import { loginRequest } from '@actions/auth';
+import { setDataUser, setDataToken } from '@actions/users';
 
-import { getItemInLocalStorage, getItemInSessionStorage } from "@utils/window";
+import { getItemInLocalStorage, getItemInSessionStorage } from '@utils/window';
+import config from '@config/index';
+import useLocalStorage from '@hooks/useLocalStorage';
 
 const Auth = ({ children }: any) => {
   const dispatch = useDispatch();
 
+  const [skCleanupLogged, setSkCleanupLogged] = useLocalStorage(config.keyName, '');
   useEffect(() => {
-    const loggedUser =
-      getItemInLocalStorage("loggedEdySan") ||
-      getItemInSessionStorage("loggedEdySan");
+    console.log({ config });
+    const loggedUser = skCleanupLogged;
+
+    console.log({ loggedUser });
 
     if (loggedUser) {
-      dispatch(loginRequest(loggedUser.data));
+      dispatch(loginRequest(loggedUser));
     }
-  }, [dispatch]);
+  }, [dispatch, skCleanupLogged]);
 
   return children;
 };
